@@ -1,3 +1,4 @@
+const { response } = require('express')
 const express = require('express')
 const app = express()
 
@@ -28,6 +29,10 @@ let persons = [
 
 app.get('/', (request, response) => {
     response.send("<h1>Puhelinluettelon palvelin-koodi</h1>")
+})
+
+app.get('/info', (request, response) => {
+    response.send(`Phonebook has info for ${persons.length} people<br/><br/>${new Date().toUTCString()}`)
 })
 
 app.get('/api/persons', (request, response) => {
